@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find:*)",
+      "Bash(tree:*)",
+      "Bash(python:*)",
+      "Bash(if:*)",
+      "Bash(then cat requirements.txt)",
+      "Bash(else echo \"requirements.txt not found\")",
+      "Bash(fi)",
+      "Bash(then echo \"alembic directory exists\")",
+      "Bash(else echo \"alembic not initialized\")",
+      "Bash(docker run:*)",
+      "Bash(source:*)",
+      "Bash(pip install:*)",
+      "Bash(alembic init:*)",
+      "Bash(alembic current:*)",
+      "Bash(alembic revision:*)",
+      "Bash(alembic upgrade:*)"
+    ]
+  }
+}
