@@ -1,0 +1,22 @@
+import { NavLink } from 'react-router-dom'
+import './Navbar.css'
+
+function Navbar() {
+  return (
+    <nav className="navbar">
+      <NavLink to="/" className="navbar-brand">
+        ResumeForge
+      </NavLink>
+      <div className="navbar-links">
+        <NavLink to="/profile" className="navbar-link">
+          Profile
+        </NavLink>
+        <NavLink to="/upload" className="navbar-link">
+          Upload
+        </NavLink>
+      </div>
+    </nav>
+  )
+}
+
+export default Navbar

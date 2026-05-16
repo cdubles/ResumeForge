@@ -1,0 +1,12 @@
+.status h1 {
+  margin-bottom: 8px;
+}
+
+.status-description {
+  color: var(--text);
+  margin-bottom: 32px;
+}
+
+.status-description code {
+  margin-left: 4px;
+}

@@ -16,7 +16,9 @@
       "Bash(alembic init:*)",
       "Bash(alembic current:*)",
       "Bash(alembic revision:*)",
-      "Bash(alembic upgrade:*)"
+      "Bash(alembic upgrade:*)",
+      "Bash(npm run lint:*)",
+      "Bash(timeout 5 npm run dev:*)"
     ]
   }
 }

@@ -1,0 +1,8 @@
+.upload h1 {
+  margin-bottom: 8px;
+}
+
+.upload-description {
+  color: var(--text);
+  margin-bottom: 32px;
+}
