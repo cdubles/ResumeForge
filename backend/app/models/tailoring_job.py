@@ -15,12 +15,23 @@ class JobStatus(PyEnum):
     FAILED = "failed"
 
 
+class ApplicationStatus(PyEnum):
+    SAVED = "saved"
+    APPLIED = "applied"
+    INTERVIEWING = "interviewing"
+    OFFERED = "offered"
+    DENIED = "denied"
+
+
 class TailoringJob(Base):
     __tablename__ = "tailoring_jobs"
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     user_id = Column(UUID(as_uuid=True), ForeignKey("users.id"), nullable=False)
     status = Column(Enum(JobStatus), default=JobStatus.PENDING, nullable=False)
+    application_status = Column(Enum(ApplicationStatus), default=ApplicationStatus.SAVED, nullable=False)
+    company_name = Column(Text, nullable=True)
+    job_role = Column(Text, nullable=True)
     job_description = Column(Text, nullable=False)
     original_resume_path = Column(Text, nullable=True)
     tailored_resume_path = Column(Text, nullable=True)

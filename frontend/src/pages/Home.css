@@ -116,7 +116,86 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
+}
+
+/* Loading */
+.home-loading {
+  font-size: 14px;
+  color: var(--text);
+  padding: 40px 0;
+  text-align: center;
+}
+
+/* Footer row: app status + actions */
+.home-job-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Application status */
+.home-app-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.home-app-status-label {
+  font-size: 13px;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.home-app-status-select {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 4px 26px 4px 10px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  transition: opacity 0.15s;
+}
+
+.home-app-status-select:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.home-app-status-select--saved {
+  color: var(--text);
+  background-color: var(--code-bg);
+  border-color: var(--border);
+}
+
+.home-app-status-select--applied {
+  color: #1d4ed8;
+  background-color: rgba(29, 78, 216, 0.08);
+  border-color: rgba(29, 78, 216, 0.25);
+}
+
+.home-app-status-select--interviewing {
+  color: #b45309;
+  background-color: rgba(180, 83, 9, 0.08);
+  border-color: rgba(180, 83, 9, 0.25);
+}
+
+.home-app-status-select--offered {
+  color: var(--accent);
+  background-color: var(--accent-bg);
+  border-color: var(--accent-border);
+}
+
+.home-app-status-select--denied {
+  color: #dc2626;
+  background-color: rgba(220, 38, 38, 0.08);
+  border-color: rgba(220, 38, 38, 0.25);
 }
 
 /* Actions */

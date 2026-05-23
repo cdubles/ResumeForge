@@ -1,10 +1,13 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { api } from '../services/api'
 import './Upload.css'
 
 function Upload() {
   const navigate = useNavigate()
 
+  const [companyName, setCompanyName] = useState('')
+  const [jobRole, setJobRole] = useState('')
   const [jobDescription, setJobDescription] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState(null)
@@ -24,13 +27,17 @@ function Upload() {
     setIsLoading(true)
     setError(null)
 
-    // TODO: Replace with actual API call
-    // const res = await axios.post('/api/jobs', { job_description: jobDescription })
-    // navigate(`/status/${res.data.job_id}`)
-
-    await new Promise(resolve => setTimeout(resolve, 1500))
-    const mockJobId = 'mock-job-' + Date.now()
-    navigate(`/status/${mockJobId}`)
+    try {
+      const job = await api.createJob({
+        job_description: jobDescription,
+        company_name: companyName.trim() || null,
+        job_role: jobRole.trim() || null,
+      })
+      navigate(`/status/${job.id}`)
+    } catch (err) {
+      setError(err.message || 'Something went wrong. Please try again.')
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -42,6 +49,40 @@ function Upload() {
       </p>
 
       <form onSubmit={handleSubmit} className="upload-form">
+        <section className="upload-card">
+          <h2>Job Details</h2>
+          <p className="upload-card-description">
+            Optionally add the company and role title so you can track this application on your dashboard.
+          </p>
+
+          <div className="upload-row">
+            <div className="upload-field">
+              <label className="upload-label" htmlFor="company-name">Company name</label>
+              <input
+                id="company-name"
+                type="text"
+                className="upload-input"
+                value={companyName}
+                onChange={(e) => setCompanyName(e.target.value)}
+                placeholder="e.g. Acme Corp"
+                disabled={isLoading}
+              />
+            </div>
+            <div className="upload-field">
+              <label className="upload-label" htmlFor="job-role">Job title</label>
+              <input
+                id="job-role"
+                type="text"
+                className="upload-input"
+                value={jobRole}
+                onChange={(e) => setJobRole(e.target.value)}
+                placeholder="e.g. Senior Software Engineer"
+                disabled={isLoading}
+              />
+            </div>
+          </div>
+        </section>
+
         <section className="upload-card">
           <h2>Job Description</h2>
           <p className="upload-card-description">

@@ -3,17 +3,22 @@ from uuid import UUID
 from typing import Any
 from pydantic import BaseModel
 
-from app.models.tailoring_job import JobStatus
+from app.models.tailoring_job import ApplicationStatus, JobStatus
 
 
 class TailoringJobCreate(BaseModel):
     job_description: str
+    company_name: str | None = None
+    job_role: str | None = None
 
 
 class TailoringJobRead(BaseModel):
     id: UUID
     user_id: UUID
     status: JobStatus
+    application_status: ApplicationStatus
+    company_name: str | None
+    job_role: str | None
     job_description: str
     original_resume_path: str | None
     tailored_resume_path: str | None
@@ -26,3 +31,7 @@ class TailoringJobRead(BaseModel):
 
 class TailoringJobStatusUpdate(BaseModel):
     status: JobStatus
+
+
+class ApplicationStatusUpdate(BaseModel):
+    application_status: ApplicationStatus

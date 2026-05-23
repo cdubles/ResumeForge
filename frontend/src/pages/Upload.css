@@ -32,6 +32,53 @@
   margin: 0 0 20px;
 }
 
+/* Company/role row */
+.upload-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.upload-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.upload-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+.upload-input {
+  padding: 10px 14px;
+  font-family: var(--sans);
+  font-size: 15px;
+  color: var(--text-h);
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.upload-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-bg);
+}
+
+.upload-input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.upload-input::placeholder {
+  color: var(--text);
+  opacity: 0.6;
+}
+
 /* Textarea */
 .upload-textarea {
   width: 100%;
@@ -108,6 +155,10 @@
 @media (max-width: 768px) {
   .upload-card {
     padding: 20px;
+  }
+
+  .upload-row {
+    grid-template-columns: 1fr;
   }
 
   .upload-drop-zone {
