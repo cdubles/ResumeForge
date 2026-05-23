@@ -8,11 +8,14 @@ function Navbar() {
         ResumeForge
       </NavLink>
       <div className="navbar-links">
-        <NavLink to="/profile" className="navbar-link">
-          Profile
+        <NavLink to="/" end className="navbar-link">
+          Dashboard
         </NavLink>
         <NavLink to="/upload" className="navbar-link">
-          Upload
+          New Application
+        </NavLink>
+        <NavLink to="/profile" className="navbar-link">
+          Profile
         </NavLink>
       </div>
     </nav>

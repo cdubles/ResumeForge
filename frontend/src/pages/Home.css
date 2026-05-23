@@ -1,79 +1,192 @@
-.home {
+.home h1 {
+  margin-bottom: 0;
+}
+
+/* Header row */
+.home-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.home-new-btn {
+  flex-shrink: 0;
+}
+
+/* Job list */
+.home-jobs {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Job card */
+.home-job-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px 24px;
+  transition: box-shadow 0.15s;
+}
+
+.home-job-card:hover {
+  box-shadow: var(--shadow);
+}
+
+.home-job-card--failed {
+  opacity: 0.7;
+}
+
+/* Card header */
+.home-job-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.home-job-title {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.home-job-company {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.home-job-role {
+  font-size: 14px;
+  color: var(--text);
+}
+
+.home-job-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+/* Status badge */
+.home-job-status {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.home-job-status--complete {
+  color: var(--accent);
+  background: var(--accent-bg);
+}
+
+.home-job-status--processing {
+  color: #b45309;
+  background: rgba(180, 83, 9, 0.1);
+}
+
+.home-job-status--pending {
+  color: var(--text);
+  background: var(--code-bg);
+}
+
+.home-job-status--failed {
+  color: #dc2626;
+  background: rgba(220, 38, 38, 0.1);
+}
+
+.home-job-date {
+  font-size: 13px;
+  color: var(--text);
+}
+
+/* Snippet */
+.home-job-snippet {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--text);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+/* Actions */
+.home-job-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.home-job-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--accent);
+  text-decoration: none;
+  padding: 6px 14px;
+  border: 1px solid var(--accent-border);
+  border-radius: 6px;
+  background: var(--accent-bg);
+  transition: opacity 0.15s;
+}
+
+.home-job-download:hover {
+  opacity: 0.8;
+}
+
+.home-job-view-status,
+.home-job-retry {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.home-job-view-status:hover,
+.home-job-retry:hover {
+  text-decoration: underline;
+}
+
+/* Empty state */
+.home-empty {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 20px;
+  padding: 80px 0;
   text-align: center;
-  padding-top: 48px;
 }
 
-.home h1 {
-  margin-bottom: 16px;
-}
-
-.home-tagline {
-  font-size: 20px;
-  color: var(--text);
-  margin-bottom: 64px;
-
-  @media (max-width: 768px) {
-    font-size: 18px;
-    margin-bottom: 48px;
-  }
-}
-
-.home-steps {
-  display: flex;
-  gap: 48px;
-  margin-bottom: 64px;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    gap: 32px;
-    margin-bottom: 48px;
-  }
-}
-
-.home-step {
-  flex: 1;
-  max-width: 280px;
-}
-
-.home-step-number {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: var(--accent-bg);
-  color: var(--accent);
-  font-weight: 600;
+.home-empty-text {
   font-size: 18px;
-  margin-bottom: 16px;
-}
-
-.home-step h2 {
-  margin-bottom: 8px;
-}
-
-.home-step p {
   color: var(--text);
 }
 
-.home-cta {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 14px 32px;
-  background: var(--accent);
-  color: white;
-  font-size: 16px;
-  font-weight: 500;
-  text-decoration: none;
-  border-radius: 8px;
-  transition: opacity 0.2s;
-}
+/* Responsive */
+@media (max-width: 768px) {
+  .home-job-card {
+    padding: 16px 18px;
+  }
 
-.home-cta:hover {
-  opacity: 0.9;
+  .home-job-header {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .home-job-meta {
+    align-items: flex-start;
+    flex-direction: row;
+    gap: 10px;
+  }
 }
